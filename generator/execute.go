@@ -28,7 +28,6 @@ import (
 	"golang.org/x/tools/imports"
 	"k8s.io/gengo/namer"
 	"k8s.io/gengo/types"
-
 	"k8s.io/klog/v2"
 )
 
@@ -64,6 +63,7 @@ type DefaultFileType struct {
 }
 
 func (ft DefaultFileType) AssembleFile(f *File, pathname string) error {
+	fmt.Println(" +", pathname)
 	klog.V(2).Infof("Assembling file %q", pathname)
 	destFile, err := os.Create(pathname)
 	if err != nil {
